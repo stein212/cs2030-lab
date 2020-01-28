@@ -1,0 +1,244 @@
+<h3>Maximum Disc Coverage</h3>
+
+<h4>Topic Coverage</h4>
+<ul>
+<li>Basic Java syntax and semantics
+<li>Object-oriented principles: abstraction and encapsulation
+</ul>
+
+<h4>Problem Description</h4>
+
+<p>In this problem, you are given a set of points on a 2D plane.
+We want to place a unit disc (i.e., a circle of radius 1) so that it covers as many points as possible.
+<i>Note that this is different from the lecture exercise where one of the point must be at the centre of the disc.</i>
+<div align="center">
+<img alt="Embedded Image" src="
+data:image/png;base64,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
+" />
+</div>
+
+<p>What is the maximum number of points that we can cover with the disc at any one time?
+We will use the following simple (non-optimal) algorithm. First, some observations:
+
+<ul>
+<li>A disc that covers the maximum number of points must pass through at least two points.
+<li>For every pair of points that is of no more than distance <tt>2</tt> away from each other, there is at most two unit discs that have their perimeter passing through the two points.
+</ul>
+
+<p>This is a follow up to Lab #0 in CodeCrunch.  You have to complete the tasks before embarking on this one.
+
+<h4>The Task</h4>
+
+<p>Given a set of points as input, go through every pair of points, and for each circle that passes through them, count how many points are covered by each circle.
+
+<p>Input is in the following format:
+
+<ul>
+<li>The first value is an integer, indicating the number of points <tt>n</tt> (<tt>n &gt 2</tt>).
+<li>The next <tt>n</tt> pairs of values contains the <tt>(x, y)</tt> coordinates of the <tt>n</tt> points. 
+<!--
+Each line has two double values, separated by space. The first double is the <tt>x</tt> coordinate; the second double is the <tt>y</tt> coordinate.
+-->
+</ul>
+
+<p>Take note of the following assumptions:
+<ul>
+<li>The format of the input is always correct;
+<li>There are always at least two points with a positive distance less than 2 between them;
+<li>Output of a <tt>double</tt> value, say <tt>d</tt>, are to be formatted with <tt>String.format("%.3f", d)</tt>;
+<li>Inconsistencies between sample output and actual output involving <tt>-0.000</tt> and <tt>0.000</tt> can be ignored.
+</ul>
+
+<p>This task is divided into five levels.  The first four levels are the same as Lab #0 on CodeCrunch.  
+
+<p>Only the last level is different.  Specifically, you need to
+
+<ul>
+<li>define a <tt>Main</tt> class with the <tt>main</tt> method to handle input and output;
+<li>check for output format correctness using the <tt>diff</tt> utility (see specific level for usage details).  Note that only <b>one</b> test case is provided for this;
+</ul>
+
+<!-- 
+Read through all the levels 
+(from first to last, then from last to first)
+to see how the different levels are related.
+-->
+
+<!-- <b>You may start from any level.</b> -->
+<b>You need to complete ALL levels to get full credit for this lab.</b>
+
+<!--    
+<li>check for styling errors by invoking <tt>checkstyle</tt>. For example, to check styling for all java files,
+<pre>
+$ checkstyle *.java
+</pre>
+<li>save a copy of all source files into the appropriate level directory (see specific level for usage details).
+
+<b>
+<ul>
+<li>Deadline: Submit your work to CodeCrunch by Thursday, 15 September, 23:59:59.
+</ul>
+</b>
+-->
+
+<p>
+<table border=1 cellpadding=10 width=800>
+
+<tr><td><h4>Level 1</h4>
+<p><big><b>Represent a Point</b></big> 
+
+<p>Design a class <tt>Point</tt> to represent a point object with each pair of <tt>x</tt>- and <tt>y</tt>- coordinates. 
+
+<pre>
+jshell> /open Point.java
+
+jshell> new Point(0.0, 1.0)
+$.. ==> point (0.000, 1.000)
+
+jshell> /exit
+</pre>
+</table>
+
+<p><table border=1 cellpadding=10 width=800>
+<tr><td><h4>Level 2</h4>
+<p><big><b>Find the mid-point and angle of line <tt>pq</tt></b></big> 
+
+<p>Find the mid-point between two consecutive points <tt>p</tt> and <tt>q</tt> read from the input.  At the same time, find the angle (in radians) of line <tt>pq</tt> using the <tt>atan</tt> or <tt>atan2</tt> Math function (refer to the Java API specifications).
+
+<pre>
+jshell> /open Point.java
+
+jshell> new Point(0.0, 0.0).midPoint(new Point(1.0, 1.0))
+$.. ==> point (0.500, 0.500)
+
+jshell> new Point(0.0, 0.0).angleTo(new Point(1.0, 1.0))
+$.. ==> 0.7853981633974483
+
+jshell> new Point(0, 0).angleTo(new Point(-1, -1))
+$.. ==> -2.356194490192345
+
+jshell> /exit
+</pre>
+
+</table>
+
+<p><table border=1 cellpadding=10 width=800>
+<tr><td><h4>Level 3</h4>
+<p><big><b>Moving the point</b></big>
+
+<p>A point can be moved at an angle &theta; and distance <tt>d</tt>
+
+<p><i>Hint:</i> if a point, say<tt>m</tt>, is at <tt>(x, y)</tt>, then moving <tt>m</tt> at an angle &theta; and distance <tt>d</tt>, would result in the new position having the coordinates <tt>(x + d cos&theta;, y + d sin&theta;)</tt>
+
+<pre>
+jshell> /open Point.java
+
+jshell> new Point(0, 0).moveTo(Math.PI / 2, 1.0)
+$.. ==> point (0.000, 1.000)
+
+jshell> /exit
+</pre>
+</table>
+
+
+<p><table border=1 cellpadding=10 width=800>
+<tr><td><h4>Level 4</h4>
+<p><big><b>Creating the Circle</b></big>
+
+<p>Together with the <tt>Point</tt> class in the preceding level, define the <tt>Circle</tt> class to allow us to create circle objects whose perimeter passes through two consecutive points.
+
+<p>By using the mid-point and angle of line <tt>pq</tt>, move the mid-point to the centre of the circle of radius <tt>r</tt> whose perimeter coincides with points <tt>p</tt> and <tt>q</tt>.
+You will need to work out the respective angle and distance values.
+
+<!--
+<p>Just keep in mind that if the distance between points <tt>p</tt> and <tt>q</tt> is larger than 2 units, then there is no unit circle whose perimeter coincides with the points.
+-->
+
+<pre>
+jshell> /open Point.java 
+
+jshell> /open Circle.java 
+
+jshell> new Circle(new Point(0.0, 0.0), 1.0)
+|  Error:
+|  Circle(Point,double) has private access in Circle
+|  new Circle(new Point(0.0, 0.0), 1.0)
+|  ^----------------------------------^
+
+jshell> Circle.getCircle(new Point(0.0, 0.0), 1.0)
+$.. ==> circle of radius 1.0 centered at point (0.000, 0.000)
+
+jshell> Circle.getCircle(new Point(0.0, 0.0), -1.0)
+$.. ==> null
+
+jshell> Circle.getCircle(new Point(0.0, 0.0), 0.0)
+$.. ==> null
+
+jshell> /open Main.java 
+
+jshell> Main.createCircle(new Point(0, 0), new Point(1, 0), 1)
+$.. ==> circle of radius 1.0 centered at point (0.500, 0.866)
+
+jshell> Main.createCircle(new Point(0, 0), new Point(1, 0), 2)
+$.. ==> circle of radius 2.0 centered at point (0.500, 1.936)
+
+jshell> Main.createCircle(new Point(0, 0), new Point(2, 0), 1)
+$.. ==> circle of radius 1.0 centered at point (1.000, 0.000)
+
+jshell> Main.createCircle(new Point(0, 0), new Point(0, 0), 2)
+$.. ==> null
+
+jshell> Main.createCircle(new Point(0, 0), new Point(3, 0), 1)
+$.. ==> null
+
+jshell> /exit
+</pre>
+</table>
+
+<p><table border=1 cellpadding=10 width=800>
+<tr><td><h4>Level 5</h4>
+<p><big><b>Maximum Disc Coverage</b></big> 
+
+<p>You are now ready to find the maximum unit disc coverage.  
+Just keep in mind that if the distance between points <tt>p</tt> and <tt>q</tt> is larger than 2 units, then there is no unit circle whose perimeter coincides with the points.
+
+<p>The following is a sample run of the program.  User input is <u>underlined</u>.  
+<!-- Ensure that the last line of output is followed by a newline character. -->
+
+<p><table border=1 >
+<tr><td><tt>
+<u>2</u><br>
+<u>0 0</u><br>
+<u>1 0</u><br>
+Maximum Disc Coverage: 2<br>
+</tt>
+
+<tr><td><tt>
+<u>4</u><br>
+<u>0 -1</u><br>
+<u>1 0</u><br>
+<u>0 1</u><br>
+<u>-1 0</u><br>
+Maximum Disc Coverage: 4<br>
+</tt>
+
+</table>
+<!--
+<p>Click <a href="https://codecrunch.comp.nus.edu.sg/task_view.php?tid=4044" target="_blank">here</a> 
+to submit to CodeCrunch.
+-->
+<p>Check the format correctness of the output by typing the following Unix command
+<pre>
+$ java Main &lt; test.in | diff - test.out
+</pre>
+
+<!--
+<p>Make a copy of your Java programs to the level directory by typing the Unix commands
+
+<pre>
+$ mkdir maxcover4
+$ cp *.java maxcover4
+</pre>
+-->
+
+</table>
