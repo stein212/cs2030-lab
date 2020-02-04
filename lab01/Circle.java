@@ -20,9 +20,6 @@ public class Circle {
     }
 
     public boolean containsPoint(Point point) {
-        return point.x >= center.x - radius
-            && point.x <= center.x + radius
-            && point.y >= center.y - radius
-            && point.y <= center.y + radius;
+        return center.distanceTo(point) <= radius;
     }
 }           
