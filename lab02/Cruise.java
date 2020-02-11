@@ -1,4 +1,4 @@
-public class Cruise {
+public class Cruise implements Comparable<Cruise> {
     private final String id;
     private final int arrivalTime, numberOfLoaders, serviceTime;
 
@@ -11,7 +11,7 @@ public class Cruise {
 
     @Override
     public String toString() {
-        return String.format("%s@%04d", id, arrivalTime);
+        return String.format("%s@%04d", id, arrivalTime/60 * 100 + arrivalTime%60);
     }
 
     @Override
@@ -26,6 +26,11 @@ public class Cruise {
         Cruise otherCruise = (Cruise)object;
 
         return id.equals(otherCruise.id);
+    }
+
+    @Override
+    public int compareTo(Cruise otherCruise) {
+        return arrivalTime - otherCruise.arrivalTime;
     }
 
     public int getArrivalTime() {

@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.stream.IntStream;
 import java.util.Arrays;
 
-public class Main {
+public class Main2 {
     public static void main(String... args) {
         Scanner scanner = new Scanner(System.in);
         int numOfCruises = scanner.nextInt();
@@ -36,6 +36,8 @@ public class Main {
 
         for (Cruise cruise : cruises) {
             for (int i = 0, numOfLoaders = cruise.getNumOfLoadersRequired(); numOfLoaders > 0; i++) {
+                System.out.println(loaders[i]);
+                System.out.println(loaders[i].canServe(cruise));
                 Loader serveLoader = loaders[i].serve(cruise);
                 if (serveLoader != null) {
                     System.out.println(serveLoader);

@@ -1,13 +1,13 @@
 public class Loader {
-    final private int id;
-    final private Cruise currentCruise;
+    final protected int id;
+    final protected Cruise currentCruise;
 
     public Loader(int id) {
         this.id = id;
         this.currentCruise = null;
     }
 
-    private Loader(int id, Cruise cruise) {
+    protected Loader(int id, Cruise cruise) {
         this.id = id;
         this.currentCruise = cruise;
     }
@@ -16,11 +16,9 @@ public class Loader {
         if (currentCruise == null) {
             return true;
         }
-        
-        return !(currentCruise.getArrivalTime() >= cruise.getArrivalTime()
-            && currentCruise.getArrivalTime() < cruise.getServiceCompletionTime()
-            || currentCruise.getServiceCompletionTime() >= cruise.getArrivalTime()
-            && currentCruise.getServiceCompletionTime() < cruise.getServiceCompletionTime());
+
+        return currentCruise.getServiceCompletionTime() <= cruise.getArrivalTime()
+            || currentCruise.getArrivalTime() > cruise.getServiceCompletionTime();
     }
 
     public Loader serve(Cruise cruise) {

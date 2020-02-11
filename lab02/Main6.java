@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.stream.IntStream;
 import java.util.Arrays;
 
-public class Main {
+public class Main6 {
     public static void main(String... args) {
         Scanner scanner = new Scanner(System.in);
         int numOfCruises = scanner.nextInt();
@@ -31,7 +31,7 @@ public class Main {
         // assume worse case number of loaders and cannot use ArrayList yet
         // but for some reason assume can stream
         Loader[] loaders = IntStream.rangeClosed(1, cruises.length * 9)
-            .mapToObj(i -> new Loader(i))
+            .mapToObj(i -> i % 3 == 0 ? new RecycledLoader(i) : new Loader(i))
             .toArray(Loader[]::new);
 
         for (Cruise cruise : cruises) {
