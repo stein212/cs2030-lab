@@ -68,6 +68,10 @@ public class Box<T> {
             return true;
         }
 
+        if (t == null) {
+            return false;
+        }
+
         if (!(other instanceof Box)) {
             return false;
         }
