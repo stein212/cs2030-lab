@@ -1,6 +1,7 @@
 # Created by https://www.gitignore.io/api/vim,java,linux,macos,windows,sublimetext,visualstudio,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=vim,java,linux,macos,windows,sublimetext,visualstudio,visualstudiocode
 
+
 ### Java ###
 # Compiled class file
 *.class
@@ -511,3 +512,7 @@ healthchecksdb
 MigrationBackup/
 
 # End of https://www.gitignore.io/api/vim,java,linux,macos,windows,sublimetext,visualstudio,visualstudiocode
+
+# exceptions
+!checkstyle-8.2-all.jar
+ 
