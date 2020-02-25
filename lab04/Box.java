@@ -7,7 +7,7 @@ public class Box<T> {
         this.t = t;
     }
 
-    public static <T> Box<T> of(T item) {
+    public static <U> Box<U> of(U item) {
         if (item == null) {
             return null;
         }
@@ -15,7 +15,7 @@ public class Box<T> {
         return new Box<>(item);
     }
 
-    public static <T> Box<T> ofNullable(T item) {
+    public static <U> Box<U> ofNullable(U item) {
         if (item == null) {
             return empty();
         }
@@ -24,8 +24,8 @@ public class Box<T> {
     }
 
     @SuppressWarnings("unchecked")
-    public static <T> Box<T> empty() {
-        return (Box<T>) EMPTY_BOX;
+    public static <U> Box<U> empty() {
+        return (Box<U>) EMPTY_BOX;
     }
 
     public boolean isPresent() {
