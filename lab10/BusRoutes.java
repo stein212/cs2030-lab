@@ -47,7 +47,7 @@ class BusRoutes {
             describeServicePromises.add(stopsPromise.thenApply(stops -> describeService(service, stops).join()));
         }
 
-        return CompletableFuture.allOf(describeServicePromises.toArray(new CompletableFuture[0]))
+        return CompletableFuture.allOf(describeServicePromises.toArray(new CompletableFuture<?>[0]))
                 .thenApply(v -> describeServicePromises.stream().map(cf -> cf.join()).reduce(result,
                         (acc, current) -> acc += current));
     }

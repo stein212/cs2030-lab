@@ -31,7 +31,7 @@ public class Main {
         }
         sc.close();
 
-        CompletableFuture.allOf(descriptionCfs.toArray(new CompletableFuture[0]))
+        CompletableFuture.allOf(descriptionCfs.toArray(new CompletableFuture<?>[0]))
                 .thenRun(() -> descriptionCfs.stream().map(dcf -> dcf.join()).forEach(System.out::println)).join();
 
         Instant stop = Instant.now();
