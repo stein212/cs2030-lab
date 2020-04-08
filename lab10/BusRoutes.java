@@ -38,18 +38,16 @@ class BusRoutes {
      *         stops served.
      */
     public CompletableFuture<String> description() {
-        String result = "Search for: " + this.stop + " <-> " + name + ":\n" + "From " + this.stop + "\n";
-
-        ArrayList<CompletableFuture<String>> describeServicePromises = new ArrayList<>();
+        CompletableFuture<String> result = CompletableFuture
+                .completedFuture("Search for: " + this.stop + " <-> " + name + ":\n" + "From " + this.stop + "\n");
 
         for (BusService service : services.keySet()) {
             CompletableFuture<Set<BusStop>> stopsPromise = services.get(service);
-            describeServicePromises.add(stopsPromise.thenApply(stops -> describeService(service, stops).join()));
+            result = result.thenCombine(stopsPromise.thenApply(stops -> describeService(service, stops).join()),
+                    (r1, r2) -> r1 + r2);
         }
 
-        return CompletableFuture.allOf(describeServicePromises.toArray(new CompletableFuture<?>[0]))
-                .thenApply(v -> describeServicePromises.stream().map(cf -> cf.join()).reduce(result,
-                        (acc, current) -> acc += current));
+        return result;
     }
 
     /**
